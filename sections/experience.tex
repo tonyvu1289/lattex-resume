@@ -5,8 +5,8 @@
 \subtext{Data Scientist}
 \begin{zitemize}
     \item \textbf{Lead generation and lookalike model}: Analyzed complex business processes to define strategic Proxy Labels. Design evaluation metric of lookalike model to ensure lead quality. Build end-to-end training pipeline of lookalike model.  
-    \item \textbf{Service Number Detection}: Conducted R\&D and experiments on identifying service phone numbers (non-personal/commercial) by using statistical dynamic hard-rule. 
-    \item \textbf{Model Validation \& Backtesting}: Performed robust ad-hoc backtesting on credit scoring model to evaluate historical performance and ensure model stability before client delivery.
+    \item \textbf{Location Feature Engineering}: Designed and built an end-to-end spatio-temporal feature system converting raw telecom logs (Voice, SMS, HLR/VLR) from VNPT \& Viettel into subscriber behavioral features for credit scoring. Replaced static cell mapping with a 6-month dynamic join window, resolved Vietnam's administrative boundary restructuring, and deployed automated null-rate \& cell-count drift monitoring. Feature architecture: 3-layer granularity (Cell/District/Province), 4 behavioral profiles (Home/Work/Weekend/All), spatial metrics including Radius of Gyration, Spatial Entropy, Earth Mover's Distance, and Meta RWI enrichment via spatial join. Improved Gini across 5 of 6 credit scoring models on VNPT data, peak gain \textbf{+3.12\% Gini}.
+    \item \textbf{HDBank BNPL Model Enhancement}: Identified and fixed a data leakage in the legacy evaluation framework by enforcing temporal train/test split. Discovered the Inter-Arrival-Time (IAT) feature during Service Number Detection R\&D --- a behavioral signal capturing call-interval patterns. Used \textbf{PySpark ML} to evaluate a 200+ feature inventory and select the top 50 by importance. Integrated HDBank credit card data into BNPL training set to capture bank-specific default behavior. Final model achieved \textbf{+1.76 Gini} uplift on BNPL portfolio and \textbf{+2.17 Gini} on CC portfolio, narrowing the gap with the legacy CC-specialist model to under 2 points.
 \end{zitemize}
 \subsection{Deliveree on-demand logistics \hfill 10/2024 -- 11/2025}
 \subtext{Data Scientist}
@@ -31,20 +31,12 @@
 \end{zitemize}
 \subsection{Thesis : Speech Enhancement using deep-learning on edge device \hfill 01/2023 -- 06/2023}
 \begin{zitemize}
-\item Research : feature extraction method (time-domain, TF, complex), solution to compress speech enhancement model and
-suitable model. Choose DCCRN model with feature fusion and similarity-preserved knowledge distillation method.
-\item Create a distillation model with PyTorch. Dig deep into Torch architecture for customizing complex-number
-Neural-Network.
-\item Create script generating training dataset by adding random noise into clean data.
-\item Fine-tune for optimizing training procedure on multi-GPU using Torch lightning and bash-script.
-\item Final grade: 9.1/10
-\item \href{https://drive.google.com/file/d/1KO6Zd68ePfUTPycaNw94ThQVt2Pkan7s/view?usp=sharing}{Link to thesis}
+\item Applied DCCRN model with feature fusion and similarity-preserved knowledge distillation to compress a speech enhancement model for edge deployment. Implemented complex-number neural networks in PyTorch and optimized multi-GPU training with PyTorch Lightning. \textbf{Grade: 9.1/10} \href{https://drive.google.com/file/d/1KO6Zd68ePfUTPycaNw94ThQVt2Pkan7s/view?usp=sharing}{[thesis]}
 \end{zitemize}
 \subsection{{Timo Digital Bank \hfill 04/2023 -- 06/2024}}
 \subtext{Data Scientist}
 \begin{zitemize}
 \item Developed an expense prediction model by redefining the target variable and implementing a data pipeline with \textbf{dbt} and \textbf{Airflow}. Delivered insights through dashboards on \textbf{Holistics} and personalized customer engagement using \textbf{Mandrill}.
-\item Built a daily data crawling pipeline for financial assets (crypto, FX, gold, stocks), storing results in \textbf{MongoDB} with optimized indexing, improving query performance and reliability of the asset tracking system.
 \item Enhanced transaction purpose classification by applying \textbf{rule mining}, \textbf{Elasticsearch} (TF-IDF, Bayesian clustering), and advanced evaluation with \textbf{EvidentlyAI}. Deployed the improved model as an API service using \textbf{SpringData}.
 \item Designed and implemented graph algorithms (\textbf{DFS, BFS, heuristic growth}) on 4TB of user interaction data with \textbf{PySpark}, uncovering customer behavior patterns that informed UI/UX improvements in money transfer and adding contact flows.
 
@@ -54,10 +46,7 @@ Neural-Network.
 \subsection{{Vietnam International Bank(VIB) Customer Data Platform\hfill 09/2022 -- 01/2023}}
 \subtext{Vendor Data Scientist \hfill Bluebolt software}
 \begin{zitemize}
-\item Determine data-science problem to match with business benefit : churn prediction, spending regression, recommendation ,etc.  
-\item \textbf{Understand VIB's data} : how data is stored, collected; study data structure of each department in VIB (card, digital, marketing). 
-\item \textbf{Explore sample data} that VIB provide : Get data that need for data-science problem by query on testing environment ; Identify data quality; Perform basic analytic
-\item Support BA team to draw technical dashboard (for tracking data-science metric of data) on SAP platform.
+\item Scoped DS use cases (churn prediction, spending regression, recommendation) by auditing data across VIB's card, digital, and marketing departments. Assessed data quality and built dashboards on SAP to track DS metrics for the BA team.
 \end{zitemize}
 
 
