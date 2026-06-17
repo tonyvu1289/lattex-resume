@@ -1,0 +1,104 @@
+%====================
+% EXPERIENCE A
+%====================
+\subsection{Data Nest \hfill 11/2025 -- Present}
+\subtext{Data Scientist}
+\begin{zitemize}
+    \item \textbf{Lead generation and lookalike model}: Analyzed complex business processes to define strategic Proxy Labels. Design evaluation metric of lookalike model to ensure lead quality. Build end-to-end training pipeline of lookalike model.  
+    \item \textbf{Service Number Detection}: Conducted R\&D and experiments on identifying service phone numbers (non-personal/commercial) by using statistical dynamic hard-rule. 
+    \item \textbf{Model Validation \& Backtesting}: Performed robust ad-hoc backtesting on credit scoring model to evaluate historical performance and ensure model stability before client delivery.
+\end{zitemize}
+\subsection{Deliveree on-demand logistics \hfill 10/2024 -- 11/2025}
+\subtext{Data Scientist}
+\begin{zitemize}
+    \item \textbf{Dynamic Pricing (built from scratch)}: Achieved highest increment of GTV recorded is 40\% in A/B testing
+    \begin{itemize}
+        \item \textbf{Price–demand model (causal)}: From zero to production — set the goal, collected/cleaned event data, built a model to measure how price changes affect demand, ran experiments, and deployed with \textbf{Ray Job}. Added shadow rollout and monitoring.
+
+        \item \textbf{Potential demand model}: Changed the forecast target from 1 hour to 3 hours (with upsampling) after checking the uncertainty in estimates. This made pricing more statistically reasonable. 
+        \item Supply model: Designed a new supply model to replace the old “not-fulfilled” model. Prove by causal inference that the effect of price is not significant on new target in case of our business. Relax the assumption about causality of supply.  
+        \item \textbf{Price safety}: Proposed and tested a statistical guardrail to catch market reactions and adjust prices if needed, so prices don’t swing too far in case the pricing system go wrong.
+        \item \textbf{Engineering}: Built the pricing API with \textbf{Ray Serve}, trained models on \textbf{Google Vertex AI Pipelines}, and set up \textbf{Grafana} dashboards for monitoring, design model output pipeline on Postgresql to ensure the availability of data.
+        \end{itemize}
+\end{zitemize}
+\begin{zitemize}
+\item \textbf{Driver matching system (enhancement)}: \begin{itemize}
+        \item Define and collect data from the driver portfolio.
+        \item Build error analysis tree: point out the cohort that have low accuracy
+        \item Optimize training flow: re-write sampling method for lower the training time from 12 hour to under 2 hour. 
+    \end{itemize}
+
+\end{zitemize}
+\subsection{Thesis : Speech Enhancement using deep-learning on edge device \hfill 01/2023 -- 06/2023}
+\begin{zitemize}
+\item Research : feature extraction method (time-domain, TF, complex), solution to compress speech enhancement model and
+suitable model. Choose DCCRN model with feature fusion and similarity-preserved knowledge distillation method.
+\item Create a distillation model with PyTorch. Dig deep into Torch architecture for customizing complex-number
+Neural-Network.
+\item Create script generating training dataset by adding random noise into clean data.
+\item Fine-tune for optimizing training procedure on multi-GPU using Torch lightning and bash-script.
+\item Final grade: 9.1/10
+\item \href{https://drive.google.com/file/d/1KO6Zd68ePfUTPycaNw94ThQVt2Pkan7s/view?usp=sharing}{Link to thesis}
+\end{zitemize}
+\subsection{{Timo Digital Bank \hfill 04/2023 -- 06/2024}}
+\subtext{Data Scientist}
+\begin{zitemize}
+\item Developed an expense prediction model by redefining the target variable and implementing a data pipeline with \textbf{dbt} and \textbf{Airflow}. Delivered insights through dashboards on \textbf{Holistics} and personalized customer engagement using \textbf{Mandrill}.
+\item Built a daily data crawling pipeline for financial assets (crypto, FX, gold, stocks), storing results in \textbf{MongoDB} with optimized indexing, improving query performance and reliability of the asset tracking system.
+\item Enhanced transaction purpose classification by applying \textbf{rule mining}, \textbf{Elasticsearch} (TF-IDF, Bayesian clustering), and advanced evaluation with \textbf{EvidentlyAI}. Deployed the improved model as an API service using \textbf{SpringData}.
+\item Designed and implemented graph algorithms (\textbf{DFS, BFS, heuristic growth}) on 4TB of user interaction data with \textbf{PySpark}, uncovering customer behavior patterns that informed UI/UX improvements in money transfer and adding contact flows.
+
+\item \href{https://www.linkedin.com/in/annabelleleanh/}{Referral : Ngoc Anh - Head of Data at Timo}
+\end{zitemize}
+
+\subsection{{Vietnam International Bank(VIB) Customer Data Platform\hfill 09/2022 -- 01/2023}}
+\subtext{Vendor Data Scientist \hfill Bluebolt software}
+\begin{zitemize}
+\item Determine data-science problem to match with business benefit : churn prediction, spending regression, recommendation ,etc.  
+\item \textbf{Understand VIB's data} : how data is stored, collected; study data structure of each department in VIB (card, digital, marketing). 
+\item \textbf{Explore sample data} that VIB provide : Get data that need for data-science problem by query on testing environment ; Identify data quality; Perform basic analytic
+\item Support BA team to draw technical dashboard (for tracking data-science metric of data) on SAP platform.
+\end{zitemize}
+
+
+
+
+
+
+%====================
+% EXPERIENCE B
+%====================
+%
+% \subsection{{University Entrance Score Data visualize with Tableau \hfill 05/2022}}
+% \subtext{school project, Team size : 5 \hfill HCMUS}
+% \begin{zitemize}
+% \item \textbf{Languague-tool} : Python, html-request, Tableau
+% \item Data crawling : crawl from various websites using Python script (html-request, regex, pandas data-frame)
+% \item Data processing with pandas(Python) : Analyse (base on experience,research) to find and remove redundancy row , merge files from many years, region to single Data-frame using built-in method in Pandas library and import to Tableau. 
+% \item Visualize data using Tableau : make graph and build interactive dashboard. 
+% \item Extract insight about score by region, trend entrance score, anomaly detection (fraud detection) from dashboard, graph and information research, inference on internet. 
+% \item Merge other member's to one tableau file and deploying project on Tableau public website. 
+% \item \href{https://public.tableau.com/views/DV-final/TngquanimchuncctrngH}{Reference}
+% \end{zitemize}
+%
+%====================
+% EXPERIENCE C
+%====================
+
+%====================
+% EXPERIENCE D
+%====================
+
+
+%====================
+% EXPERIENCE E
+%====================
+%\subsection{{ROLE / PROJECT E \hfill MMM YYYY --- MMM YYYY}}
+%\subtext{company E \hfill somewhere, state}
+%\begin{zitemize}
+%\item In lobortis libero consectetur eros vehicula, vel pellentesque quam fringilla.
+%\item Ut malesuada purus at mi placerat dapibus.
+%\item Suspendisse finibus massa eu nisi dictum, a imperdiet tellus convallis.
+%\item Nam feugiat erat vestibulum lacus feugiat, efficitur gravida nunc imperdiet.
+%\item Morbi porta lacus vitae augue luctus, a rhoncus est sagittis.
+%\end{zitemize}
