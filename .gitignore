@@ -1,3 +1,6 @@
+# Confidential CV source material — internal/client data, never publish
+location_cv_material.md
+
 # LaTeX build artifacts
 *.aux
 *.log
