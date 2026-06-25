@@ -4,11 +4,22 @@
 \subsection{Data Nest \hfill 11/2025 -- Present}
 \subtext{Data Scientist}
 \begin{zitemize}
-    \item \textbf{Lead generation and lookalike model}: Analyzed complex business processes to define strategic Proxy Labels. Design evaluation metric of lookalike model to ensure lead quality. Build end-to-end training pipeline of lookalike model.  
-    \item \textbf{Location Feature Engineering}: Designed and built an end-to-end spatio-temporal feature system on \textbf{PySpark}, converting raw VNPT telecom logs (Voice, SMS, HLR) --- $\sim$8.7B rows/week across $\sim$16M subscribers over 59 weekly partitions --- into subscriber behavioral features for credit scoring. Built a 3-stage rolling ETL (weekly $\rightarrow$ 4-week $\rightarrow$ 12-week baseline) producing district-level behavioral profiles (Home/Work/Weekend/All) enriched with Radius of Gyration, spatial entropy, OSM/GADM geodata, and Meta RWI socioeconomic signal via spatial join. Implemented \textbf{Earth Mover's Distance} as an Arrow \texttt{pandas\_udf} to quantify a subscriber's geographic displacement from baseline as a credit-risk leading indicator. Diagnosed and eliminated a mapping-success decline (93\% $\rightarrow$ 88\%) by replacing a hardcoded join date with a dynamic 6-month window, and deployed automated null-rate \& cell-count drift monitoring. Evaluated on \textbf{CatBoost} models across 12 test sets using an equal feature-count methodology; improved Gini on 5 of 6 VNPT credit models, peak \textbf{+3.12 Gini points} on the credit-card segment.
-    \item \textbf{HDBank BNPL Model Enhancement}: Identified and fixed a data leakage in the legacy evaluation framework by enforcing temporal train/test split. Discovered the Inter-Arrival-Time (IAT) feature during Service Number Detection R\&D --- a behavioral signal capturing call-interval patterns. Used \textbf{PySpark ML} to evaluate a 200+ feature inventory and select the top 50 by importance. Integrated HDBank credit card data into BNPL training set to capture bank-specific default behavior. Final model achieved \textbf{+1.76 Gini} uplift on BNPL portfolio and \textbf{+2.17 Gini} on CC portfolio, narrowing the gap with the legacy CC-specialist model to under 2 points.
+    \item \textbf{Lead generation (lookalike model)} --- find new prospects who resemble high-value customers
+    \begin{itemize}
+        \item Defined the modeling target (strategic proxy labels) from the business process
+        \item Built the end-to-end training pipeline and a lead-quality evaluation metric
+    \end{itemize}
+    \item \textbf{Location features for credit scoring} --- \textbf{PySpark} pipeline turning telecom data into credit-risk signals
+    \begin{itemize}
+        \item Converts $\sim$8.7B VNPT logs/week ($\sim$16M subscribers) into mobility \& location-diversity features (radius of gyration, spatial entropy) plus area-wealth enrichment
+        \item Feeds these new behavioral signals into loan-default models for VNPT credit clients
+    \end{itemize}
+    \item \textbf{HDBank BNPL credit model} --- \textbf{+1.76 Gini} (and \textbf{+2.17} on credit card)
+    \begin{itemize}
+        \item Fixed a data leakage in the legacy evaluation (temporal train/test split)
+        \item Added a call-timing behavioral feature; used \textbf{PySpark ML} to select the top 50 of a 200+ feature inventory
+    \end{itemize}
 \end{zitemize}
-
 \subsection{Deliveree on-demand logistics \hfill 10/2024 -- 11/2025}
 \subtext{Data Scientist}
 \begin{zitemize}
@@ -17,8 +28,9 @@
         \item \textbf{Price--demand model (causal)}: From zero to production --- set the goal, collected/cleaned event data, built a model to measure how price changes affect demand, ran experiments, and deployed with \textbf{Ray Job}. Added shadow rollout and monitoring.
         \item \textbf{Potential demand model}: Changed the forecast horizon from 1h to 3h (with upsampling) based on uncertainty analysis, improving statistical soundness of pricing decisions.
         \item Supply model: Designed a new supply model to replace the old ``not-fulfilled'' model. Proved via causal inference that price has no significant effect on the new target, relaxing the causality assumption on supply.
-        \item \textbf{Price safety}: Proposed and tested a statistical guardrail to detect market reactions and cap prices before the system diverges in edge cases.
-        \item \textbf{Engineering}: Built the pricing API with \textbf{Ray Serve}, trained models on \textbf{Google Vertex AI Pipelines}, set up \textbf{Grafana} dashboards for monitoring, and designed the model output pipeline on PostgreSQL to ensure data availability.
+        \item \textbf{Price safety}: Proposed and tested a statistical guardrail, running as a near-real-time \textbf{Ray Job} (15-min refresh), to detect market reactions and cap prices before the system diverges in edge cases.
+        \item \textbf{Competitive pricing}: Helped design a separate near-real-time \textbf{Ray Job} (15-min refresh) that integrates crawled competitor prices into the pricing logic, keeping our prices competitive against the market.
+        \item \textbf{Engineering}: Built the pricing API with \textbf{Ray Serve}, trained models on \textbf{Google Vertex AI Pipelines}, set up \textbf{Grafana} dashboards for monitoring, and designed the model output pipeline on PostgreSQL to ensure data availability. Partnered with DevOps on the model-deployment CI/CD, proposing two serving strategies and weighing the trade-off between deploy flexibility (load model from URI at runtime) and immutability/startup reliability (bundle the model into the image).
     \end{itemize}
     \item \textbf{Driver matching system (enhancement)}: Audited driver portfolio data and ran cohort-level error analysis to identify underperforming segments. Refactored the sampling pipeline, cutting training time from \textbf{12 hours to under 2 hours}.
 \end{zitemize}
