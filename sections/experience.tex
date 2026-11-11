@@ -4,17 +4,24 @@
 \subsection{Data Nest \hfill 11/2025 -- Present}
 \subtext{Data Scientist}
 \begin{zitemize}
-    \item \textbf{Lead generation (lookalike model)} --- find new prospects who resemble high-value customers
+    \item \textbf{Lead generation (lookalike model)} --- \textbf{$\sim$4$\times$ lift} over random, \textbf{1.9$\times$} recall over the previous version
     \begin{itemize}
-        \item Defined the modeling target (strategic proxy labels) from the business process
-        \item Built the end-to-end training pipeline and a lead-quality evaluation metric
+        \item Top 20\% of scores captures \textbf{81\%} of converted customers; reply-rate quality confirmed on a 44k-user holdout (\textbf{AUC 0.83}, \textbf{0.85} precision)
+        \item Diagnosed the client's business process to define proxy labels; found that adding a random sample of the general customer population as negatives improved metrics; built the pipeline and a recall/lift@K evaluation on a time-based split
     \end{itemize}
     \item \textbf{Location features for credit scoring} --- \textbf{PySpark} pipeline turning telecom data into credit-risk signals
     \begin{itemize}
-        \item Converts $\sim$8.7B VNPT logs/week ($\sim$16M subscribers) into mobility \& location-diversity features (radius of gyration, spatial entropy) plus area-wealth enrichment
-        \item Feeds these new behavioral signals into loan-default models for VNPT credit clients
+        \item Converts $\sim$8.7B telecom logs/week ($\sim$16M subscribers) into mobility \& location-diversity features (radius of gyration, spatial entropy) plus area-wealth enrichment
+        \item Feeds these new behavioral signals into loan-default models for lending clients
     \end{itemize}
-    \item \textbf{HDBank BNPL credit model} --- \textbf{+1.76 Gini} (and \textbf{+2.17} on credit card)
+    \item \textbf{Bespoke telecom credit scores (CatBoost + Spark)} --- built a separate model for each lending client, each beating the client's production score in backtest
+    \begin{itemize}
+        \item \textbf{Consumer finance company:} \textbf{+13--24 Gini points} across 5 default targets (FPD30 to DPD90), strongest on long-tenor targets (\textbf{+24} on DPD90\_INST09)
+        \item \textbf{Digital bank (cash loan):} \textbf{+11--13 Gini points} (0.37--0.39 vs 0.26 for the client's existing score); trained on $\sim$340k loans from other lenders ($\sim$490 telecom features), tested on the client's own labelled loans
+        \item Ran a parallel \textbf{Spark} sweep over label definition, sampling and lender mix, using paired comparisons to separate real gains from refit noise
+        \item Uncovered selection bias from the client's hidden approval cutoff, concluded production performance can't be measured from approved-only labels, and reframed the evaluation accordingly
+    \end{itemize}
+    \item \textbf{Bank BNPL credit model} --- \textbf{+1.76 Gini} (and \textbf{+2.17} on credit card)
     \begin{itemize}
         \item Fixed a data leakage in the legacy evaluation (temporal train/test split)
         \item Added a call-timing behavioral feature; used \textbf{PySpark ML} to select the top 50 of a 200+ feature inventory
